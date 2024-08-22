@@ -1,0 +1,40 @@
+version: '3.9'
+services:
+  botserver:
+    build: bot/
+    restart: always
+    healthcheck:
+      test: ["CMD", "wscat", "-c", "ws://localhost:8282"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    command: npm start
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d
+  webserver:
+    build:
+      context: ./http
+      args:
+        TIMEZONE: ${TIMEZONE}
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      BOT_CONTAINER: botserver
+      HTTP_CONTAINER: webserver
+      PORT: 80
+    ports:
+      - ${PORT}:80
+    command: npm start
+    depends_on:
+      botserver:
+        condition: service_healthy

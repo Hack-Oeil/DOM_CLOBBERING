@@ -1,0 +1,38 @@
+<%- include('header') -%>
+<section>
+    <% if (profil.activated == 0) { %>
+        <div class="alert alert-warning">
+            <%= __('Our administrator does not easily validate accounts, but he will regularly check your profile.') %>
+            <%= __('Once your account is activated, you will need to log in again for the activation to take effect.') %>            
+        </div>
+    <% } %>
+    <div class="user-profile">
+        <h3><%= __('Your Profile Information') %></h3>
+        <p><strong><%= __('Username:') %></strong> <%= profil.username %></p>
+        <p><strong><%= __('Email:') %></strong> <%= profil.email %></p>
+        <p><strong><%= __('Join Date:') %></strong> <%= profil.created_at.toDateString() %></p>
+        
+        <p id="github-not-editable">
+            <strong><%= __('GitHub Profile URL:') %></strong> 
+            <% if(profil.githublink && profil.githublink != "") { %>
+            <a href="<%- profil.githublink %>"><%= __('see the github of') %>  <%= profil.username %></a>
+            <% } %>
+            <button id="github-edit" class="btn btn-primary" style="font-size: 16px; padding:4px 8px;" title="<%= __('Edit github link') %>">&#x1F589;</button>
+        </p>
+        <div id="github-editable">
+            <form action="/update-github" method="POST" class="edit-github-form">
+                <input type="hidden" id="username" value="<%= profil.username %>">
+                <input type="hidden" name="csrf" value="<%= csrf %>">
+                <div class="form-group">
+                    <label for="github"><strong><%= __('GitHub Profile URL:') %></strong></label>
+                    <input type="url" id="github" name="github" value="<%= profil.githublink %>" placeholder="https://github.com/username">
+                </div>
+                <button type="submit" class="btn btn-primary"><%= __('Update GitHub') %></button>
+            </form>
+        </div>
+    </div>
+    <% if (user.roles.includes('ADMIN')) { %>
+        <button id="admin-valid-account" type="submit" class="btn btn-primary"><%= __('Validate User') %></button>
+    <% } %>
+</section>
+<%- include('footer') -%>
