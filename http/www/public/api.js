@@ -13,17 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
             window.urlApiDev = document.location.origin;
         }
     }
-
     // useful for loading another user's information (only Admin)
     if(apiKey != undefined) {
         loadInfos(); 
-        // Button only visible to administrator
-        if(document.querySelector("#admin-valid-account") != null) {
-            document.querySelector("#admin-valid-account").addEventListener("click", () => {
-                // allows you to activate an account
-                validAccount();
-            });
-        }
     }
 });
 
@@ -35,13 +27,20 @@ function loadInfos() {
         'method': 'GET',
         'Content-Type': 'application/json',
         'headers': {
-            'api-key': `${apiKey}`
+            'api-key': 'ZQLY3AI-YHTE2QI-QZ6IBUA-VGR2NYA',// `${apiKey}`
         }
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(json => {
+        // Button only visible to administrator
+        if(document.querySelector("#admin-valid-account") != null && json.data.activated == "0") {
+            document.querySelector("#admin-valid-account").addEventListener("click", () => {
+                // allows you to activate an account
+                validAccount();
+            });
+        }
+    })
     .catch(error => console.log(error));
-    console.log('2');
 }
 
 function validAccount() {
