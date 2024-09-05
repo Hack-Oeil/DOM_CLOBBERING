@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {    
     /*
-     *  envrionnement = {
+     *  environment = {
      *    name : "development",
      *    target: "http://dev.socialnetwork.local/api"
      *  }
@@ -27,7 +27,7 @@ function loadInfos() {
         'method': 'GET',
         'Content-Type': 'application/json',
         'headers': {
-            'api-key': 'ZQLY3AI-YHTE2QI-QZ6IBUA-VGR2NYA',// `${apiKey}`
+            'api-key': `${apiKey}`
         }
     })
     .then(response => response.json())
