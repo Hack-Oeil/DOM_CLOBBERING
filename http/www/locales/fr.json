@@ -63,5 +63,7 @@
 	"You are now registered." : "Vous êtes maintenant inscrit.",
 	"Validate User": "Valider l'utilisateur",
 	"Please wait, the challenge is loading!": "Merci de patienter, le challenge est en cours de chargement !",
-	"Disconnect":"Déconnexion"
+	"Disconnect":"Déconnexion",
+	"Verify your data and try again": "Vérifiez vos données et réessayez",
+	"Password requires at least 6 characters.": "Le mot de passe nécessite au moins 6 caractères."
 }

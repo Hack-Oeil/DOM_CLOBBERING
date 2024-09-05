@@ -54,5 +54,7 @@
 	"Well done, the FLAG is:": "Well done, the FLAG is:",
 	"Validate User": "Validate User",
 	"Please wait, the challenge is loading!": "Please wait, the challenge is loading!",
-	"Disconnect":"Disconnect"
+	"Disconnect":"Disconnect",
+	"Verify your data and try again": "Verify your data and try again",
+	"Password requires at least 6 characters.": "Password requires at least 6 characters."
 }

@@ -74,6 +74,15 @@ exports.post = async (req, res) => {
                     email: email, 
                     github: github
                 });
+            } else {
+                res.render('signup', {
+                    page: "signup",
+                    title: res.__('Welcome to DevSocial'),
+                    error: res.__("Verify your data and try again"),
+                    username: username, 
+                    email: email, 
+                    github: github
+                });
             }
         })
     });
