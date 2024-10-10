@@ -16,20 +16,20 @@ async function controlData(data) {
 
     // Validation des champs
     if (!username || username.length < 3 || username.length > 40) {
-        return { valid: false, message: res.__('Invalid username. It must contain between 3 and 40 characters.') };
+        return { valid: false, message: 'Invalid username. It must contain between 3 and 40 characters.' };
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
-        return { valid: false, message: res.__('Invalid email.')  };
+        return { valid: false, message: 'Invalid email.'  };
     }
 
     if (!password || password.length < 6) {
-        return { valid: false, message: res.__('Invalid email.') };
+        return { valid: false, message: 'Invalid email.' };
     }
 
     if (github && github.length > 250) {
-        return { valid: false, message: res.__('GitHub link too long.') };
+        return { valid: false, message:'GitHub link too long.' };
     }
 
     return { valid: true };
@@ -42,7 +42,14 @@ exports.post = async (req, res) => {
     const validation = await controlData({ username, email, password, github });
 
     if (!validation.valid) {       
-        return res.status(400).send(validation.message); // Affiche un message d'erreur si les données sont invalides
+        return res.render('signup', {
+            page: "signup",
+            title: res.__('Welcome to DevSocial'),
+            error: res.__(validation.message),
+            username: username, 
+            email: email, 
+            github: github
+        });
     }
  
      // Hacher le mot de passe avant de le stocker

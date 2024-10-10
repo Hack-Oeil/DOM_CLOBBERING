@@ -1,7 +1,12 @@
 const repoUser = require("./repo.user.js");
 exports.get = async (req, res) => { 
     if(req.headers['api-key'] != undefined) {
-        if (await repoUser.isAdminByApiKey(req.headers['api-key']) === true) {
+        if( req.params == undefined || req.params.username == undefined ||
+            req.session == undefined || req.session.user == undefined || req.session.user.username == undefined
+        ) { 
+            return res.status(400).json({"status": "400", "message": "Bad Request"});
+        }
+        else if (req.params.username == req.session.user.username || await repoUser.isAdminByApiKey(req.headers['api-key']) === true) {
             if (req.params.username) {
                 repoUser.getByUsername(req.params.username).then((user) => {
                     delete user.password;
