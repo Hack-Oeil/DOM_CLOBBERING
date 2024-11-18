@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /*
      *  environment = {
      *    name : "development",
-     *    target: "http://dev.socialnetwork.local/api"
+     *    target: "http://dev.socialnetwork.local"
      *  }
      */
     if(typeof environment != "undefined") {
