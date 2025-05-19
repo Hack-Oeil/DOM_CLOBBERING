@@ -25,7 +25,7 @@ async function controlData(data) {
     }
 
     if (!password || password.length < 6) {
-        return { valid: false, message: 'Invalid email.' };
+        return { valid: false, message: 'Invalid password.' };
     }
 
     if (github && github.length > 250) {

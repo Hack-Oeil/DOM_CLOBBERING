@@ -48,6 +48,8 @@
 	"You must be authenticated to access this page.": "You must be authenticated to access this page.",
 	"You must be an administrator to access this page.":"You must be an administrator to access this page.",
 	"This username or email already exists in our database": "This username or email already exists in our database",
+	"Invalid email.": "Invalid email.",
+	"Invalid password.": "Invalid password.",
 	"You are now registered.": "You are now registered.",
 	"You are now authenticated.": "You are now authenticated.",
 	"You are now diconnected.":"You are now diconnected.",

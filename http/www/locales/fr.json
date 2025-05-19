@@ -49,6 +49,7 @@
 	"Well done, the FLAG is:": "Bien joué le Flag est:",
 	"Invalid username. It must contain between 3 and 40 characters." : "Nom d'utilisateur invalide. Il doit contenir entre 3 et 40 caractères.",
 	"Invalid email.": "Email invalide.",
+	"Invalid password.": "Mot de passe invalide.",
 	"Password too short. It must contain at least 6 characters." : "Mot de passe trop court. Il doit contenir au moins 6 caractères.",
 	"GitHub link too long.": "Lien GitHub trop long.",
 	"Server error": "Erreur du serveur",
