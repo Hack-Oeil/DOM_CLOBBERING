@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.urlApiDev = environment.target;
         } else {
             // environment.name == "production"
-            window.urlApiDev = document.location.origin;
+            window.urlApiDev = currentUrl();
         }
     }
     // useful for loading another user's information (only Admin)
@@ -19,11 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+function currentUrl() {
+    return document.location.origin + document.location.pathname.split('/').slice(0, 2).join('/').replace('profile', '') ;
+}
 
 function loadInfos() {
-    const apiUrl =  window.urlApiDev || document.location.origin;
+    const apiUrl =  window.urlApiDev || currentUrl();
 
-    fetch(`${apiUrl}/api/user/${document.getElementById('username').value}`, {
+    fetch(`${apiUrl.replace(/\/+$/, '')}/api/user/${document.getElementById('username').value}`, {
         'method': 'GET',
         'Content-Type': 'application/json',
         'headers': {
@@ -45,7 +48,7 @@ function loadInfos() {
 
 function validAccount() {
     const apiUrl =  window.urlApiDev || document.location.origin;
-    fetch(`${apiUrl}/api/valid-account/${document.getElementById('username').value}`, {
+    fetch(`${apiUrl.replace(/\/+$/, '')}/api/valid-account/${document.getElementById('username').value}`, {
         'method': 'PUT',
         'Content-Type': 'application/json',
         'headers': {

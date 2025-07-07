@@ -1,9 +1,12 @@
 const path = require('path');
 const csrf = require('./ho-csrf.js');
 const auth = require('./auth.middleware.js');
+const hoFW = require("./ho-fw.js");
 
 module.exports = (app) => {
-   // Route pour la page d'accueil
+    app.use(hoFW.absoluteUrl);
+    
+    // Route pour la page d'accueil
     app.get('/', require("./controller.home.js").get);
    
     // Route GET pour la page d'inscription

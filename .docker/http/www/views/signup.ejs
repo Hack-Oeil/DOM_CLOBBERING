@@ -5,7 +5,7 @@
     <% if (error) { %>
         <div class="alert alert-danger"><%= error %></div>
     <% } %>
-    <form action="/signup" method="post" class="signup-form">
+    <form action="<%= absoluteUrl('/') %>signup" method="post" class="signup-form">
         <input type="hidden" name="csrf" value=<%= csrf %>>
         <div class="form-group">
             <label for="username"><%= __('Username') %>:</label>

@@ -20,7 +20,6 @@ exports.get = (req, res) => {
         req.flash('error', res.__('An error has occurred.'));
         return res.redirect('/');
     }
-   
 };
 
 exports.update = (req, res) => {

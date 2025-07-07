@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="<%= absoluteUrl('/') %>favicon.ico">
     <title><%= title %></title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="<%= absoluteUrl('/') %>style.css">
 </head>
 <body>
     <div class="container">
         <header>
             <div class="logo-container">
-                <a href="/">
-                    <img src="/logo.png" alt="<%= __('DevSocialNetwork') %>" class="site-logo">
+                <a href="<%= absoluteUrl('/') %>">
+                    <img src="<%= absoluteUrl('/') %>/logo.png" alt="<%= __('DevSocialNetwork') %>" class="site-logo">
                     <h1><%= __('DevSocialNetwork') %></h1>
                 </a>
             </div>
@@ -21,27 +21,27 @@
                 ☰
             </button>
             <nav id="main-menu">
-                <a href="/"<%= page === 'index' ? ' class=active' : '' %>><%= __('Home') %></a>
+                <a href="<%= absoluteUrl('/') %>"<%= page === 'index' ? ' class=active' : '' %>><%= __('Home') %></a>
                 <% if (user && user.id > 0) { %>
-                    <a href="/profile"<%= page === 'profile' ? ' class=active' : '' %>><%= __('Profile') %></a>
-                    <a href="/disconnect"><%= __('Disconnect') %></a>
+                    <a href="<%= absoluteUrl('/') %>profile"<%= page === 'profile' ? ' class=active' : '' %>><%= __('Profile') %></a>
+                    <a href="<%= absoluteUrl('/') %>disconnect"><%= __('Disconnect') %></a>
                 <% } else { %>
-                    <a href="/signup"<%= page === 'signup' ? ' class=active' : '' %>><%= __('Sign Up') %></a>
-                    <a href="/signin"<%= page === 'signin' ? ' class=active' : '' %>><%= __('Sign In') %></a>
+                    <a href="<%= absoluteUrl('/') %>signup"<%= page === 'signup' ? ' class=active' : '' %>><%= __('Sign Up') %></a>
+                    <a href="<%= absoluteUrl('/') %>signin"<%= page === 'signin' ? ' class=active' : '' %>><%= __('Sign In') %></a>
                 <% }  %>
             </nav>
             <nav id="multi-lang">
                 <div class="dropdown">
                     <button class="dropbtn">
-                        <img src="/flags/<%= lang %>.svg" alt="<%= lang %>" class="flag-icon">
+                        <img src="<%= absoluteUrl('/') %>flags/<%= lang %>.svg" alt="<%= lang %>" class="flag-icon">
                         <span><%= __('language_'+lang) %></span>
                     </button>
                     <div class="dropdown-content">
                         <a href="?lang=en">
-                            <img src="/flags/en.svg" alt="<%= __('language_en') %>" class="flag-icon" width="16px"> <%= __('language_en') %>
+                            <img src="<%= absoluteUrl('/') %>flags/en.svg" alt="<%= __('language_en') %>" class="flag-icon" width="16px"> <%= __('language_en') %>
                         </a>
                         <a href="?lang=fr">
-                            <img src="/flags/fr.svg" alt="<%= __('language_fr') %>" class="flag-icon" width="16px"> <%= __('language_fr') %>
+                            <img src="<%= absoluteUrl('/') %>flags/fr.svg" alt="<%= __('language_fr') %>" class="flag-icon" width="16px"> <%= __('language_fr') %>
                         </a>
                     </div>
                 </div>

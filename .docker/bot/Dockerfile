@@ -1,7 +1,7 @@
-FROM node:18-slim
+FROM node:20-slim
 
 RUN apt-get update && apt-get install -y sudo wget unzip
-RUN npm install -g npm@9.6.3 wscat
+RUN npm install -g npm@11.4.2 wscat
 
 # Création d'un utilisateur non privilégié et ajout au groupe sudo
 RUN useradd -m chromeuser && echo "chromeuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/nopasswd && usermod -aG sudo chromeuser

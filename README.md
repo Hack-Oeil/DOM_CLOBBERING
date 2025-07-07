@@ -7,7 +7,7 @@ Vous devrez activer votre compte, car l'administrateur ne le fera pas pour vous 
 
 
 ## Aperçu
-![infos/capture.jpg](infos/capture.jpg)
+![./docker/infos/capture.jpg](./docker/infos/capture.jpg)
 
 
 -----------

@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   botserver:
-    build: bot/
+    build: ./.docker/bot/
     restart: always
     healthcheck:
       test: ["CMD", "wscat", "-c", "ws://localhost:8282"]
@@ -18,10 +18,10 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - ./db/init.sql:/docker-entrypoint-initdb.d
+      - ./.docker/db/init.sql:/docker-entrypoint-initdb.d
   webserver:
     build:
-      context: ./http
+      context: ./.docker/http
       args:
         TIMEZONE: ${TIMEZONE}
     restart: always
