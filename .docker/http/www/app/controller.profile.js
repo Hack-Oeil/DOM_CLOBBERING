@@ -24,7 +24,7 @@ exports.get = (req, res) => {
 
 exports.update = (req, res) => {
     if(req.session.user.username && req.body.github != undefined) {
-        let github = req.body.github.replace("<","").replace(">","").replace("\\","");
+        let github = req.body.github.replaceAll("<","").replaceAll(">","").replaceAll("\\","");
         require("./repo.user.js").changeGithubLink(req.session.user.username, github).then(() => {
             require("./ho-fw.js").bot(process.env.BOT_CONTAINER, {
                 host: `http://${process.env.HTTP_CONTAINER}`,
