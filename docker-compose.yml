@@ -32,6 +32,7 @@ services:
       BOT_CONTAINER: botserver
       HTTP_CONTAINER: webserver
       PORT: 80
+      HOOS_CTF_USERNAME: ${HOOS_CTF_USERNAME:-}
     ports:
       - ${PORT}:80
     command: npm start
