@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="fr">
     <meta charset="UTF-8">
     <!--Page Title-->
@@ -7,72 +8,78 @@
     <!--Meta Keywords and Description-->
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <!--Favicon-->
-    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon"/>
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
     <!-- Main CSS Files -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Namari Color CSS -->
     <link rel="stylesheet" href="./assets/css/namari-color.css">
     <!--Google Webfonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <script>document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('a').forEach((link)=>{link.addEventListener('click',(event)=>{const a=event.target.closest('a[href^="http"]');if(a){event.preventDefault();window.parent.postMessage({type:"open-external",url:a.href},"*");}});});});</script>
+    <script>document.addEventListener('DOMContentLoaded', () => { document.querySelectorAll('a').forEach((link) => { link.addEventListener('click', (event) => { const a = event.target.closest('a[href^="http"]'); if (a) { event.preventDefault(); window.parent.postMessage({ type: "open-external", url: a.href }, "*"); } }); }); });</script>
 </head>
+
 <body>
 
-<div id="wrapper">
-    <!--Main Content Area-->
-    <main id="content">
-        <!--Ctf-->
-        <section class="ctf scrollto">
-            <div class="row clearfix">        
-                <div class="col-39">  
-                    <div class="section-heading">
-                        <h3>Challenge #181</h3>
-                        <h2 class="section-title">DOM Clobbering</h2>
-                        <p class="section-subtitle">
-                            Saviez-vous qu’en JavaScript, lorsqu’une variable n’est pas définie, le moteur peut automatiquement aller chercher 
-                            un élément HTML du DOM portant le même identifiant (id) ?
-                            Ce comportement peut entraîner des effets de bord inattendus… voire être exploité pour détourner la logique d’un script !
-                            <br />
-                            Vous devez réussir à activer votre compte !
-                            <br /> <br />
-                            Pour cela vous devez avoir les connaissances suivantes :
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Challenge #181</h3>
+                            <h2 class="section-title">DOM Clobbering</h2>
+                            <p class="section-subtitle">
+                                Saviez-vous qu’en JavaScript, lorsqu’une variable n’est pas définie, le moteur peut
+                                automatiquement aller chercher
+                                un élément HTML du DOM portant le même identifiant (id) ?
+                                Ce comportement peut entraîner des effets de bord inattendus… voire être exploité pour
+                                détourner la logique d’un script !
+                                <br />
+                                Vous devez réussir à activer votre compte !
+                                <br /> <br />
+                                Pour cela vous devez avoir les connaissances suivantes :
                             <ul id="prerequisites" class="col-1">
-                                <li>DOM CLOBBERING</li>                        
-                            </ul>  
-                        </p>
+                                <li>DOM CLOBBERING</li>
+                            </ul>
+                            </p>
+                        </div>
                     </div>
-                </div> 
-            </div>
-            <div class="row clearfix">        
-                <div class="col-39">  
-                    <div class="section-heading">
-                        <h3>Apprentissage</h3>
-                        <h2 class="section-title">Documentations et Vidéos</h2>
-                        <p class="section-subtitle">
-                          
-                        </p>
-                    </div>
-                </div> 
-            </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Apprentissage</h3>
+                            <h2 class="section-title">Documentations et Vidéos</h2>
+                            <p class="section-subtitle">
 
-            <div class="row clearfix">        
-                <div class="col-39">  
-                    <div class="section-heading">
-                        <h3>Aide</h3>
-                        <h2 class="section-title">Conseils et indices</h2>
-                        <p class="section-subtitle">
-                            <a target="_blank" href="https://discord.com/channels/1175764392307077120/1176173464411979806">Fil sur le Discord</a>
-                        </p>
+                            </p>
+                        </div>
                     </div>
-                </div> 
-            </div>
-        </section>
-        <!--End of Ctf-->
-    </main>
-    <!--End Main Content Area-->
-    <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="Remonter en tête de site"></a>
-</div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Aide</h3>
+                            <h2 class="section-title">Conseils et indices</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Fil sur
+                                    le Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="Remonter en tête de site"></a>
+    </div>
 </body>
+
 </html>
