@@ -1,13 +1,18 @@
-        </main>
+</main>
 
-        <footer>
-            <p>&copy; <%= new Date().getFullYear() %> <%= __('DevSocialNetwork') %></p>
-        </footer>
-    </div>
-    <script src="<%= absoluteUrl('/') %>script.js"></script>
-    <% if (page === 'profile' && user && user.id > 0) { %><script>
+<footer>
+    <p>&copy; <%= new Date().getFullYear() %>
+            <%= __('DevSocialNetwork') %>
+    </p>
+</footer>
+</div>
+<script src="./script.js"></script>
+<% if (page==='profile' && user && user.id> 0) { %>
+    <script>
         const apiKey = "<%= user.apikey %>";
     </script>
-    <script src="<%= absoluteUrl('/') %>api.js"></script><% }  %>
-</body>
-</html>
+    <script src="./api.js"></script>
+    <% } %>
+        </body>
+
+        </html>
