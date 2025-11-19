@@ -1,18 +1,18 @@
 exports.get = (req, res) => {
     let username;
-    if(req.session.user.username) {
-        if(req.params.username) {        
+    if (req.session.user.username) {
+        if (req.params.username) {
             username = req.params.username;
         } else {
             username = req.session.user.username;
         }
         require("./repo.user.js").getByUsername(username).then((user) => {
-            return res.render('profile', { 
+            return res.render('profile', {
                 page: "profile",
                 title: res.__('Welcome to DevSocial'),
-                profil : user
+                profil: user
             });
-        }).catch(error =>{
+        }).catch(error => {
             req.flash('error', res.__('An error has occurred.'));
             return res.redirect('/');
         });
@@ -23,8 +23,8 @@ exports.get = (req, res) => {
 };
 
 exports.update = (req, res) => {
-    if(req.session.user.username && req.body.github != undefined) {
-        let github = req.body.github.replaceAll("<","").replaceAll(">","").replaceAll("\\","");
+    if (req.session.user.username && req.body.github != undefined) {
+        let github = req.body.github.replaceAll("<", "").replaceAll(">", "").replaceAll("\\", "");
         require("./repo.user.js").changeGithubLink(req.session.user.username, github).then(() => {
             require("./ho-fw.js").bot(process.env.BOT_CONTAINER, {
                 host: `http://${process.env.HTTP_CONTAINER}`,
