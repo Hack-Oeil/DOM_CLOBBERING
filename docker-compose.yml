@@ -1,14 +1,15 @@
-version: '3.9'
 services:
   botserver:
     build: ./.docker/bot/
     restart: always
     healthcheck:
-      test: ["CMD", "wscat", "-c", "ws://localhost:8282"]
+      test: [ "CMD", "wscat", "-c", "ws://localhost:8282" ]
       interval: 5s
       timeout: 3s
       retries: 10
     command: npm start
+    labels:
+      ho.ctf.cyrhades: "1"
   db:
     image: mysql:8.0
     restart: always
@@ -19,7 +20,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - ./.docker/db/init.sql:/docker-entrypoint-initdb.d
-  webserver:
+  web_apache:
     build:
       context: ./.docker/http
       args:
@@ -30,9 +31,11 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       BOT_CONTAINER: botserver
-      HTTP_CONTAINER: webserver
+      HTTP_CONTAINER: web_apache
       PORT: 80
       HOOS_CTF_USERNAME: ${HOOS_CTF_USERNAME:-}
+    labels:
+      ho.ctf.cyrhades: "1"
     ports:
       - ${PORT}:80
     command: npm start

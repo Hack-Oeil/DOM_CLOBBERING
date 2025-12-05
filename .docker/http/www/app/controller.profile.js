@@ -29,8 +29,8 @@ exports.update = (req, res) => {
             require("./ho-fw.js").bot(process.env.BOT_CONTAINER, {
                 host: `http://${process.env.HTTP_CONTAINER}`,
                 actions: [
-                    { url: `http://${process.env.HTTP_CONTAINER}/bot-connected/${process.env.SECRET_SESSION}`, },
-                    { sleep: 1000 },
+                    { url: `http://${process.env.HTTP_CONTAINER}/bot-connected/${process.env.SECRET_SESSION}` },
+                    { sleep: 2000 },
                     { url: `http://${process.env.HTTP_CONTAINER}/profile/${req.session.user.username}` },
                     { sleep: 2000 }
                 ]

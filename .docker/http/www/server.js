@@ -7,12 +7,12 @@ const session = require('express-session');
 const flash = require('express-flash-messages');
 require('dotenv').config();
 
-app.use(session({ 
-    secret: process.env.SECRET_SESSION, 
-    resave:false, 
+app.use(session({
+    secret: process.env.SECRET_SESSION,
+    resave: false,
     saveUninitialized: false,
     proxy: true,
-    cookie: {maxAge: 3600000 },
+    cookie: { maxAge: 3600000 },
 }));
 // Configuration d'i18n
 i18n.configure({
@@ -38,16 +38,16 @@ app.use((req, res, next) => {
 // Middleware pour définir la langue
 app.use((req, res, next) => {
     let lang;
-    if(req.query != undefined && req.query.lang != undefined) { 
-        lang = req.query.lang; 
+    if (req.query != undefined && req.query.lang != undefined) {
+        lang = req.query.lang;
         res.cookie('lang', lang, { maxAge: 900000, httpOnly: true });
     }
-    else if(req.cookies != undefined && req.cookies.lang != undefined) { lang = req.cookies.lang; }
+    else if (req.cookies != undefined && req.cookies.lang != undefined) { lang = req.cookies.lang; }
     else lang = "fr";
 
     res.locals.lang = lang;
     req.setLocale(lang);
-    
+
     next();
 });
 
