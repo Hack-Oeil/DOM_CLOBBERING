@@ -7,11 +7,12 @@ RUN npm install -g npm@9.6.3 wscat
 RUN useradd -m chromeuser && echo "chromeuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/nopasswd && usermod -aG sudo chromeuser
 
 # installation de chrome
-RUN wget "https://chrome-versions.com/google-chrome-stable-114.0.5735.198-1.deb"
-RUN dpkg -i --ignore-depends=package-name /google-chrome-stable-114.0.5735.198-1.deb || true
-RUN apt-get --fix-broken install -y
-RUN dpkg -i /google-chrome-stable-114.0.5735.198-1.deb
-RUN rm /google-chrome-stable-114.0.5735.198-1.deb
+RUN wget -q "https://chrome-versions.com/google-chrome-stable-114.0.5735.198-1.deb" -O /tmp/chrome.deb && \
+    apt-get update && \
+    apt-get install -y /tmp/chrome.deb && \
+    rm /tmp/chrome.deb && \
+    rm -rf /var/lib/apt/lists/*
+
 
 # Récupération de la dernier version de chromedriver compatible avec notre version chrome
 # https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${VERSION}
